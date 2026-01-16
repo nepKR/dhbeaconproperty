@@ -3,101 +3,82 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DH Beacon Property</title>
-  <meta name="description" content="DH Beacon Property is a real estate investment company. Contact us for inquiries." />
+  <title>DH Beacon Property LLC</title>
+  <meta name="description" content="DH Beacon Property LLC — Real estate investment and property inquiries." />
   <style>
-    :root { --bg:#0b0f19; --card:#121a2a; --text:#e9eefc; --muted:#a7b3d6; --line:#24304a; --btn:#2b6cff; }
-    *{box-sizing:border-box} body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.5}
-    .wrap{max-width:920px;margin:0 auto;padding:28px}
-    .nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
-    .brand{font-weight:800;letter-spacing:.2px}
-    .nav a{color:var(--muted);text-decoration:none;margin-left:14px}
-    .nav a:hover{color:var(--text)}
-    .hero{padding:42px 0 18px;display:grid;gap:16px}
-    .h1{font-size:42px;line-height:1.1;margin:0}
-    .sub{color:var(--muted);font-size:18px;max-width:70ch}
-    .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;margin-top:18px}
-    @media (max-width: 820px){ .grid{grid-template-columns:1fr} .h1{font-size:36px} }
-    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
-    .card h2{margin:0 0 10px;font-size:18px}
-    .card p{margin:0 0 10px;color:var(--muted)}
-    .pill{display:inline-block;padding:6px 10px;border:1px solid var(--line);border-radius:999px;color:var(--muted);font-size:12px}
-    .btn{display:inline-block;background:var(--btn);color:white;text-decoration:none;padding:10px 14px;border-radius:12px;font-weight:650}
-    .btn:hover{filter:brightness(1.05)}
-    .list{margin:10px 0 0;padding-left:18px;color:var(--muted)}
-    footer{margin-top:24px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
-    footer a{color:var(--muted);text-decoration:none}
-    footer a:hover{color:var(--text)}
-    .contact-line{margin:10px 0 0;color:var(--muted)}
-    .contact-line strong{color:var(--text)}
+    :root { --text:#111; --muted:#555; --border:#e6e6e6; }
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0;line-height:1.55;color:var(--text);background:#fff}
+    header,main,footer{max-width:960px;margin:0 auto;padding:22px}
+    header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+    nav a{margin-right:14px;color:var(--text);text-decoration:none}
+    nav a:hover{text-decoration:underline}
+    h1{font-size:40px;margin:14px 0}
+    h2{margin:0 0 10px}
+    .muted{color:var(--muted)}
+    .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+    .card{border:1px solid var(--border);border-radius:14px;padding:18px}
+    footer{border-top:1px solid #eee}
+    small{color:#666}
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="nav">
-      <div class="brand">DH Beacon Property</div>
-      <div>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-      </div>
+
+<header>
+  <div>
+    <strong>DH Beacon Property LLC</strong><br/>
+    <span class="muted">Real Estate Investment</span>
+  </div>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/sms-consent.html">SMS Consent</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Contact DH Beacon Property LLC</h1>
+  <p class="muted">
+    We communicate with property owners regarding real estate inquiries.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h2>Contact Information</h2>
+      <p><strong>Email:</strong> <a href="mailto:contact@dhbeaconproperty.com">contact@dhbeaconproperty.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+12392323251">(239) 232-3251</a></p>
+      <p><strong>Business Mailing Address:</strong><br/>
+        2620 Ellendale Place, Unit 15<br/>
+        Los Angeles, CA 90007<br/>
+        United States
+      </p>
+      <p class="muted">
+        Want to opt in to SMS? Use the form on the <a href="/sms-consent.html">SMS Consent</a> page.
+      </p>
     </div>
 
-    <section class="hero">
-      <span class="pill">Real Estate Investment</span>
-      <h1 class="h1">Simple. Direct. Professional.</h1>
-      <p class="sub">
-        DH Beacon Property is a real estate investment company. If you have a property-related inquiry,
-        reach out and we’ll respond as soon as possible.
+    <div class="card">
+      <h2>SMS Disclosure</h2>
+      <p class="muted">
+        If you provide your phone number or contact us by text, you may receive informational SMS messages related to your inquiry.
+        <strong>Message frequency varies.</strong> <strong>Message &amp; data rates may apply.</strong>
+        Reply <strong>STOP</strong> to opt out or <strong>HELP</strong> for help.
+        <strong>Consent is not a condition of purchase.</strong>
       </p>
-      <div>
-        <a class="btn" href="mailto:contact@dhbeaconproperty.com">Email us</a>
-      </div>
-    </section>
-
-    <section class="grid">
-      <div class="card" id="about">
-        <h2>What we do</h2>
-        <p>
-          We focus on real estate investment activities, including evaluating opportunities and purchasing property directly
-          from owners when it makes sense for both sides.
-        </p>
-        <ul class="list">
-          <li>Fast, straightforward communication</li>
-          <li>No obligation to proceed</li>
-          <li>Transparent next steps</li>
-        </ul>
-      </div>
-
-      <div class="card" id="contact">
-        <h2>Contact</h2>
-        <p>For inquiries, email us:</p>
-        <p class="contact-line"><strong>Email:</strong> contact@dhbeaconproperty.com</p>
-
-        <!-- Optional: Add phone later once your A2P number is live -->
-        <p class="contact-line"><strong>Phone:</strong> (239) 232-3251</p>
-
-        <p style="margin-top:12px;color:var(--muted);font-size:13px">
-          <strong style="color:var(--text)">SMS Disclosure (A2P-friendly):</strong><br/>
-          Message frequency may vary. Message &amp; data rates may apply.
-          Reply <strong style="color:var(--text)">STOP</strong> to opt out, <strong style="color:var(--text)">HELP</strong> for help.
-        </p>
-      </div>
-    </section>
-
-    <footer>
-      <div>© <span id="y"></span> DH Beacon Property</div>
-      <div>
-        <a href="privacy.html">Privacy Policy</a> ·
-        <a href="terms.html">Terms of Service</a> .
-        <a href="sms-consent.html">SMS Consent</a>
-      </div>
-    </footer>
+      <p class="muted">
+        See <a href="/sms-consent.html">SMS Consent</a>, <a href="/privacy.html">Privacy Policy</a>, and <a href="/terms.html">Terms of Service</a>.
+      </p>
+    </div>
   </div>
+</main>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+<footer>
+  <small>© <span id="y"></span> DH Beacon Property LLC</small>
+</footer>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
