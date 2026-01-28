@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SMS Consent | DH Beacon Property LLC</title>
+  <meta name="description" content="SMS consent and opt-in details for DH Beacon Property LLC." />
   <style>
     body {
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
@@ -39,6 +40,42 @@
       border-top: 1px solid #eee;
       color: #666;
     }
+
+    /* Form styling */
+    .row { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    label { font-weight: 600; display: block; margin: 8px 0 6px; }
+    input[type="text"], input[type="tel"], input[type="email"]{
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #d9d9d9;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+    .tiny { font-size: 12px; color: #666; }
+    .consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      background: #fafafa;
+      margin-top: 12px;
+    }
+    .consent input[type="checkbox"] { margin-top: 3px; }
+    .btn {
+      margin-top: 12px;
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid #111;
+      background: #111;
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .links a { margin-right: 14px; }
   </style>
 </head>
 <body>
@@ -56,23 +93,78 @@
   <h1>SMS Consent</h1>
   <p class="muted"><strong>Last updated:</strong> January 15, 2026</p>
 
+  <!-- REQUIRED DISCLOSURES (carriers want these visible on-page) -->
   <div class="card">
     <p>
-      By opting in, you agree to receive informational SMS messages from
-      <strong>DH Beacon Property LLC</strong> related to real estate inquiries.
+      By opting in, you agree to receive SMS messages from <strong>DH Beacon Property LLC</strong> related to
+      property inquiries, purchase offers, and follow-ups.
     </p>
     <ul>
-      <li>Message frequency varies</li>
-      <li>Message &amp; data rates may apply</li>
-      <li>Reply <strong>STOP</strong> to opt out</li>
-      <li>Reply <strong>HELP</strong> for assistance</li>
-      <li>Consent is not a condition of purchase</li>
+      <li><strong>Message frequency:</strong> varies</li>
+      <li><strong>Message &amp; data rates:</strong> may apply</li>
+      <li><strong>Opt-out:</strong> reply <strong>STOP</strong> to unsubscribe</li>
+      <li><strong>Help:</strong> reply <strong>HELP</strong> for help</li>
+      <li><strong>Consent:</strong> not a condition of purchase</li>
     </ul>
+    <p class="links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+    </p>
   </div>
 
+  <!-- ON-PAGE OPT-IN (important: checkbox cannot be mandatory) -->
   <div class="card">
-    <h2>Online SMS Opt-In Form</h2>
-    <p class="muted">Complete the form below to provide SMS consent.</p>
+    <h2>Opt In Here</h2>
+    <p class="muted">
+      This page provides SMS consent details. If you want to opt in, fill out the form below.
+      The SMS consent checkbox is optional and must be selected by you.
+    </p>
+
+    <!-- NOTE: If you have a backend/webhook, put it in action="".
+         If not, this still helps compliance checks, but it won't "submit" anywhere. -->
+    <form method="post" action="#" autocomplete="on">
+      <div class="row">
+        <div>
+          <label for="name">Name (optional)</label>
+          <input id="name" name="name" type="text" placeholder="Your name" />
+        </div>
+
+        <div>
+          <label for="phone">Mobile number</label>
+          <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="(555) 555-5555" required />
+          <div class="tiny">Enter a valid U.S. mobile number.</div>
+        </div>
+
+        <div>
+          <label for="email">Email (optional)</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" />
+        </div>
+      </div>
+
+      <div class="consent">
+        <!-- IMPORTANT: checkbox must NOT be required -->
+        <input id="sms_opt_in" name="sms_opt_in" type="checkbox" value="yes" />
+        <label for="sms_opt_in" style="margin:0;">
+          I agree to receive SMS messages from <strong>DH Beacon Property LLC</strong> regarding property inquiries and purchase offers.
+          Message frequency varies. Message &amp; data rates may apply. Reply <strong>STOP</strong> to unsubscribe or <strong>HELP</strong> for help.
+          <div class="tiny">This checkbox is optional. If you do not check it, we will not send SMS messages.</div>
+        </label>
+      </div>
+
+      <button class="btn" type="submit">Submit</button>
+
+      <p class="tiny" style="margin-top:10px;">
+        By submitting, you agree to our <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms</a>.
+      </p>
+    </form>
+  </div>
+
+  <!-- OPTIONAL: Keep your Google Form as additional proof -->
+  <div class="card">
+    <h2>Alternative Opt-In (Google Form)</h2>
+    <p class="muted">
+      If you prefer, you can opt in using this Google Form. (Some carriers may not read iframe content reliably, which is why the on-page form exists above.)
+    </p>
 
     <iframe
       src="https://docs.google.com/forms/d/e/1FAIpQLSfztabek6vBEr3yl2fHFBIFuP19ZSsDBySjDEeNryM8gfQgVg/viewform?embedded=true"
@@ -88,3 +180,18 @@
     <p>
       2620 Ellendale Place, Unit 15<br/>
       Los Angeles, CA 90007<br/>
+    </p>
+  </div>
+</main>
+
+<footer>
+  <p class="muted">© <span id="y"></span> DH Beacon Property LLC</p>
+</footer>
+
+<script>
+  // small helper for footer year
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
